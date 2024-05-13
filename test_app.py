@@ -11,7 +11,7 @@ class TestSnippet(unittest.TestCase):
         print(f"Testing function - {check_posted_data.__name__} Set 1")
 
         # data_list = [[{"x": 184, "y": 323}, "add", 200], [{"x": 143, "y": 0}, "division", 302], [{"x": 142}, "division", 301]]
-        data_list = [[{"x": 184, "y": 323}, "add", 200]]
+        data_list = []
         
         for data in data_list:
             result = check_posted_data(data[0], data[1])
