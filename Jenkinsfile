@@ -14,7 +14,6 @@ pipeline {
     stage('Test') { 
       steps { 
         sh 'python3 test_app.py'
-        sh 'echo ${params.project_name}'
         input(id: "Deploy Gate", message: "Deploy ${params.project_name}?", ok: 'Deploy') 
       } 
     } 
