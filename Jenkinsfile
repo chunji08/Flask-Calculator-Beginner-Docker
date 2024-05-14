@@ -14,7 +14,8 @@ pipeline {
     stage('Test') { 
       steps { 
         sh 'python3 test_app.py'
-        input(id: "DeployGate", message: "Deploy ${params.project_name}?", ok: 'Deploy') 
+#        input(id: "DeployGate", message: "Deploy ${params.project_name}?", ok: 'Deploy') 
+        input (message: 'Deploy ${project_name}?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'DeployGate']])
       } 
     } 
   
