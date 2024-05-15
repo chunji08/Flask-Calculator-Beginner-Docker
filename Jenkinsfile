@@ -1,4 +1,5 @@
-pipeline { 
+if (env.BRANCH_NAME == 'master' || (env.BRANCH_NAME).startsWith('release/')) {
+  pipeline { 
   agent any 
   stages { 
     stage('Build') { 
@@ -25,8 +26,14 @@ pipeline {
         sh "sudo nohup python3 app.py > log.txt 2>&1 &"
       } 
     } 
+    stage('E2E') 
+    { 
+        steps { 
+          echo "e2e checking"
+          sh "netstat localhost 5000"
+        } 
+    } 
   } 
-  
   post { 
         always { 
             echo 'The pipeline completed'
@@ -40,4 +47,7 @@ pipeline {
             error('Stopping early…') 
         } 
       } 
-} 
+  } 
+}
+
+
