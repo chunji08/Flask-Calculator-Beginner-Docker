@@ -1,12 +1,12 @@
 pipeline { 
   agent any 
   stages { 
-     when { 
+    stage('Build') { 
+       when { 
             not { 
                 branch 'dev' 
           }
-    }
-    stage('Build') { 
+      }
       parallel { 
         stage('Build') { 
           steps { 
