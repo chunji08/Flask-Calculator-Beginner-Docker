@@ -25,6 +25,14 @@ pipeline {
         sh "sudo nohup python3 app.py > log.txt 2>&1 &"
       } 
     } 
+    stage('E2E') 
+    { 
+        steps { 
+          echo "e2e checking"
+          sh "netstat -zv localhost 5000"
+        } 
+    } 
+
   } 
   
   post { 
