@@ -29,7 +29,7 @@ pipeline {
     { 
         steps { 
           echo "e2e checking"
-          sh "netstat -zv localhost 5000"
+          sh "netstat localhost 5000"
         } 
     } 
 
