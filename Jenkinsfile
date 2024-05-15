@@ -1,4 +1,4 @@
-if (env.BRANCH_NAME == 'master' || (env.BRANCH_NAME).startsWith('release/')) {
+if (env.BRANCH_NAME == 'main' || (env.BRANCH_NAME).startsWith('release/')) {
   pipeline { 
   agent any 
   stages { 
