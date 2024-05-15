@@ -1,4 +1,5 @@
-pipeline { 
+if (env.BRANCH_NAME == 'master' || (env.BRANCH_NAME).startsWith('release/')) {
+  pipeline { 
   agent any 
   stages { 
     stage('Build') { 
@@ -32,9 +33,7 @@ pipeline {
           sh "netstat localhost 5000"
         } 
     } 
-
   } 
-  
   post { 
         always { 
             echo 'The pipeline completed'
@@ -48,4 +47,7 @@ pipeline {
             error('Stopping early…') 
         } 
       } 
-} 
+  } 
+}
+
+
